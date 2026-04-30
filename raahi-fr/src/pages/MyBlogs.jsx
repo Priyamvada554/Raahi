@@ -12,12 +12,12 @@ function MyBlogs() {
     if (user?.id) {
       setLoading(true);
       getBlogsByUser(user.id)
-        .then(setBlogs)
+        .then((data) => setBlogs(data || []))  // ✅ undefined se bachao
         .finally(() => setLoading(false));
     }
   }, [user]);
 
-  const cards = blogs.map((blog) => ({
+  const cards = (blogs || []).map((blog) => ({  // ✅ safety check
     image: blog.image,
     title: blog.title,
     subtitle: blog.subtitle,
