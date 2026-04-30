@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import MultiCard from '@/components/ui/card/card01';
 import { useUser } from '@clerk/clerk-react';
@@ -12,12 +13,12 @@ function MyBlogs() {
     if (user?.id) {
       setLoading(true);
       getBlogsByUser(user.id)
-        .then((data) => setBlogs(data || []))  // ✅ undefined se bachao
+        .then((data) => setBlogs(data || []))
         .finally(() => setLoading(false));
     }
   }, [user]);
 
-  const cards = (blogs || []).map((blog) => ({  // ✅ safety check
+  const cards = (blogs || []).map((blog) => ({
     image: blog.image,
     title: blog.title,
     subtitle: blog.subtitle,
