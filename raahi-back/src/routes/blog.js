@@ -16,9 +16,8 @@ const upload = multer({ storage });
 router.post("/post", upload.single("image"), createBlog);
 router.get("/latest", getLatestBlogs);
 router.get("/search", searchBlogs);
-router.get("/:id", blogDetails)
-
 router.get("/user/:userId", getBlogsByUser);
+router.get("/:id", blogDetails);
 
 
 export default router;
