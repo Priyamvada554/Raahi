@@ -38,10 +38,10 @@ const blogSchema = new mongoose.Schema(
             required: false,
         },
         image: {
-            type: String,
-            required: true,
+           type: String,
+           required: false,
+           default: "",
         },
-    },
     { timestamps: true }
 );
 
